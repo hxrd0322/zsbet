@@ -14,6 +14,7 @@ const users: User[] = [{
 }]
 
 bot.on("message", async (ctx) => {
+  if ((ctx.message.date * 1000) + (10 * 1000 * 60) <= Date.now()) return
   console.log(ctx.message.text)
   await fs.writeFile("./msg.txt", ctx.message.text || "")
   const instructions: Instruction = parseMsg(ctx.message.text || "")
