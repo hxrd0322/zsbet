@@ -21,7 +21,7 @@ const getChannel = (text: string) => {
 
 const getTeams = (msg: string) => {
   const split = msg.split('\n')
-  const teams = split.find(i => i.includes('vs'))!.split('vs').map(i => i.trim())
+  const teams = split.filter(i => i.includes('vs')).at(-1)!.split('vs').map(i => i.trim())
   return teams as [string, string]
 }
 

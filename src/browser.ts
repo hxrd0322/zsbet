@@ -18,10 +18,6 @@ async function getFrame(page: Page, target = "SportsIframe"): Promise<Frame> {
 
 const sleep = (ms: number) => new Promise((res, rej) => setTimeout(res, ms))
 
-const loginNeeded = (page: Page) => new Promise((res, rej) => {
-  page.waitForSelector(".ButtonLogin").then(() => res(1)).catch(() => { })
-  page.waitForSelector(".TotalBalanceWrapper").then(() => res(0)).catch(() => { })
-})
 
 let frame: Frame | null
 
