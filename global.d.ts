@@ -17,4 +17,9 @@ declare global {
     password: string
     stake: number
   }
+
+  interface BetConfig {
+    stake: number
+    id: string
+  }
 }
